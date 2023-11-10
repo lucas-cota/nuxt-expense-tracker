@@ -1,5 +1,11 @@
 <template>
   <div>
-    My app
+    <Header />
+    <div class="container">
+      <Balance />
+      <IncomeExpenses />
+      <TransactionList />
+    </div>
   </div>
 </template>
+
