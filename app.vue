@@ -5,6 +5,7 @@
       <Balance />
       <IncomeExpenses />
       <TransactionList />
+      <AddTransactions />
     </div>
   </div>
 </template>
