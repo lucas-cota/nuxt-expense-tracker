@@ -2,9 +2,9 @@
   <div>
     <Header />
     <div class="container">
-      <Balance />
+      <Balance :total="total" />
       <IncomeExpenses />
-      <TransactionList :transactions="transactions"/>
+      <TransactionList :transactions="transactions" />
       <AddTransactions />
     </div>
   </div>
@@ -12,9 +12,15 @@
 
 <script setup lang="ts">
 
-  const transactions = ref([
-    {id:1, text: 'Flower', amount: -19.99},
-    {id:2, text: 'Salary', amount: 299.97},
-    {id:3, text: 'Book', amount: -10},
-  ])
+const transactions = ref([
+  { id: 1, text: 'Flower', amount: -19.99 },
+  { id: 2, text: 'Salary', amount: 299.97 },
+  { id: 3, text: 'Book', amount: -10 },
+]);
+
+const total = computed(() => {
+  return transactions.value.reduce((acc, transaction) => {
+    return acc + transaction.amount;
+  }, 0);
+}); 
 </script>
