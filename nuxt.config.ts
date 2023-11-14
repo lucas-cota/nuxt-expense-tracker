@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
-    "~/assets/styles/main.css"
-  ]
+    "~/assets/styles/main.css",
+  ],
+  build:{
+    // vue-toastification - old commonjs module 
+    transpile: ['vue-toastification'],
+  }
 })

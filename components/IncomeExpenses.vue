@@ -14,11 +14,11 @@
 <script lang="ts" setup>
 defineProps({
   income: {
-    type: String,
+    type: Number,
     required: true
   },
   expenses: {
-    type: String,
+    type: Number,
     required: true
   }
 
