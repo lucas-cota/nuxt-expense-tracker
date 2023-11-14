@@ -15,10 +15,21 @@
 </template>
 
 <script lang="ts" setup>
-const text = ref('')
-const amount = ref('')
+import { useToast } from 'vue-toastification';
+
+const text = ref('');
+const amount = ref('');
+const toast = useToast();
+
 
 const onSubmit = () => {
-  console.log(text.value, amount.value)
-}
+  if (!text.value || !amount.value) {
+    toast.error('Both fields must be filled')
+    console.log(toast)
+    return;
+  }
+
+  text.value = ''
+  amount.value = ''
+};
 </script>
