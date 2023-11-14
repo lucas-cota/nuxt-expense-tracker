@@ -11,6 +11,9 @@
 </template>
 
 <script setup lang="ts">
+import { useToast } from 'vue-toastification';
+
+const toast = useToast();
 
 const transactions = ref([
   { id: 1, text: 'Flower', amount: -19.99 },
@@ -50,6 +53,8 @@ const handleTransactionSubmitted = (transactionData:{text:string, amount:number}
     text: transactionData.text,
     amount: transactionData.amount
   })
+
+  toast.success('Transaction added');
 }
 
 
