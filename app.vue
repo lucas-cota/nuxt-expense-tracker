@@ -72,7 +72,7 @@ const handleTransactionSubmitted = (transactionData:{text:string, amount:number}
 
 //generate unique id
 const generateUniqueId = () => {
-  return Math.floor(Math.random() + 100000);
+  return Math.floor(100000000 + Math.random() * 900000000);
 };
 
 //delete transaction
