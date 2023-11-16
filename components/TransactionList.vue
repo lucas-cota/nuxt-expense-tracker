@@ -9,24 +9,29 @@
       >
          {{ transaction.text }}
         <span>$ {{ transaction.amount }}</span>
-        <button class="delete-btn">x</button>
+        <button @click="deleteTransaction(transaction.id)" class="delete-btn">x</button>
       </li>
     </ul>
   </div>
 </template>
 
 <script lang="ts" setup>
-  interface Transactions {
-    id:number,
-    text: string,
-    amount: number
-  }
-  
-  defineProps({
-    transactions: 
-      {
-        type: Array as() => Array<Transactions>,
-        required: true
-      } 
- })
+interface Transactions {
+  id:number,
+  text: string,
+  amount: number
+}
+
+const emit = defineEmits(['transactionDeleted'])
+
+defineProps({
+  transactions: {
+    type: Array as() => Array<Transactions>,
+    required: true
+  } 
+})
+
+const deleteTransaction = (id:number) => {
+  emit('transactionDeleted', id)
+}
 </script>
